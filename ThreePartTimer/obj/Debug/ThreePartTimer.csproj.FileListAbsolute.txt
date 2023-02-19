@@ -1,0 +1,11 @@
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\bin\Debug\ThreePartTimer.exe.config
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\bin\Debug\ThreePartTimer.exe
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\bin\Debug\ThreePartTimer.pdb
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.csproj.AssemblyReference.cache
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.MainForm.resources
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.Properties.Resources.resources
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.csproj.GenerateResource.cache
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.csproj.CoreCompileInputs.cache
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.exe
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.pdb
+C:\Users\miken\source\repos\ThreePartTimer\ThreePartTimer\obj\Debug\ThreePartTimer.SettingsForm.resources

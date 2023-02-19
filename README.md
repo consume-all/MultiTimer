@@ -1,2 +1,2 @@
 # MultiTimer
-Three timers in one! Written by Michael Nolan [C# - Windows .NET Forms] 
+[C# - Windows .NET Forms] Three timers in one! Written by Michael Nolan 
