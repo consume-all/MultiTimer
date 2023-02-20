@@ -12,10 +12,12 @@ namespace ThreePartTimer
 {
     public partial class SettingsForm : Form
     {
-        public SettingsForm()
+        private MainForm _MainForm;
+        public SettingsForm(MainForm main_form)
         {
             InitializeComponent();
 
+            _MainForm = main_form;
             ApplyDefaultSettings();
         }
 
@@ -23,28 +25,28 @@ namespace ThreePartTimer
         {
             t1_mins_numeric.Maximum = 60;
             t1_mins_numeric.Minimum = 0;
-            t1_mins_numeric.Value = 5;
+            t1_mins_numeric.Value = 0;
             t1_secs_numeric.Maximum = 60;
             t1_secs_numeric.Minimum = 0;
-            t1_secs_numeric.Value = 0;
-            t1_name_tbox.Text = "Timer 1";
+            t1_secs_numeric.Value = 15;
+            t1_name_tbox.Text = "Timer 1 Label";
 
 
             t2_mins_numeric.Maximum = 60;
             t2_mins_numeric.Minimum = 0;
-            t2_mins_numeric.Value = 5;
+            t2_mins_numeric.Value = 0;
             t2_secs_numeric.Maximum = 60;
             t2_secs_numeric.Minimum = 0;
-            t2_secs_numeric.Value = 0;
-            t2_name_tbox.Text = "Timer 2";
+            t2_secs_numeric.Value = 15;
+            t2_name_tbox.Text = "Timer 2 Label";
 
             t3_mins_numeric.Maximum = 60;
             t3_mins_numeric.Minimum = 0;
-            t3_mins_numeric.Value = 5;
+            t3_mins_numeric.Value = 0;
             t3_secs_numeric.Maximum = 60;
             t3_secs_numeric.Minimum = 0;
-            t3_secs_numeric.Value = 0;
-            t3_name_tbox.Text = "Timer 3";
+            t3_secs_numeric.Value = 15;
+            t3_name_tbox.Text = "Timer 3 Label";
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -87,9 +89,19 @@ namespace ThreePartTimer
             return Decimal.ToInt32(t3_secs_numeric.Value);
         }
 
+        private void t1_updt_btn_Click(object sender, EventArgs e)
+        {
+            _MainForm.UpdateLabelt1(t1_name_tbox.Text);
+        }
 
+        private void t2_updt_btn_Click(object sender, EventArgs e)
+        {
+            _MainForm.UpdateLabelt2(t2_name_tbox.Text);
+        }
 
-
-
+        private void t3_updt_btn_Click(object sender, EventArgs e)
+        {
+            _MainForm.UpdateLabelt3(t3_name_tbox.Text);
+        }
     }
 }

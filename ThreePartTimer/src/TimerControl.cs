@@ -66,13 +66,13 @@ namespace ThreePartTimer.src
             switch(timer)
             {
                 case 1:
-                    _MainForm.UpdateLabelt1(String.Format("{0}:{1}", min.ToString().PadLeft(2, '0'), sec.ToString().PadLeft(2, '0')));
+                    _MainForm.UpdateDynamLabelt1(String.Format("{0}:{1}", min.ToString().PadLeft(2, '0'), sec.ToString().PadLeft(2, '0')));
                     break;
                 case 2:
-                    _MainForm.UpdateLabelt2(String.Format("{0}:{1}", min.ToString().PadLeft(2, '0'), sec.ToString().PadLeft(2, '0')));
+                    _MainForm.UpdateDynamLabelt2(String.Format("{0}:{1}", min.ToString().PadLeft(2, '0'), sec.ToString().PadLeft(2, '0')));
                     break;
                 case 3:
-                    _MainForm.UpdateLabelt3(String.Format("{0}:{1}", min.ToString().PadLeft(2, '0'), sec.ToString().PadLeft(2, '0')));
+                    _MainForm.UpdateDynamLabelt3(String.Format("{0}:{1}", min.ToString().PadLeft(2, '0'), sec.ToString().PadLeft(2, '0')));
                     break;
                 default:
                     return;
