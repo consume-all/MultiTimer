@@ -11,12 +11,17 @@ namespace ThreePartTimer.src
 {
     class AlarmAction
     {
-        public void FlickerBackground (Form form, int interval_milliseconds, Color color)
+        private MainForm _MainForm;
+        public AlarmAction(MainForm main_form)
         {
-            var current_color = form.BackColor;
-            form.BackColor = color;
+            _MainForm = main_form;
+        }
+        public void FlickerBackground (int interval_milliseconds, Color color)
+        {
+            var current_color = _MainForm.BackColor;
+            _MainForm.BackColor = color;
             Thread.Sleep(interval_milliseconds);
-            form.BackColor = current_color;
+            _MainForm.BackColor = current_color;
 
         }
     }

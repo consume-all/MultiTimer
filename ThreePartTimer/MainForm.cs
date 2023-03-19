@@ -21,6 +21,7 @@ namespace ThreePartTimer
 
         public delegate void UpdateT1Delegate();
         Action<Control, string> UpdateControlTextCallback = (control, text) => control.Text = text;
+
         public MainForm()
         {
             InitializeComponent();
@@ -29,14 +30,24 @@ namespace ThreePartTimer
 
             CreateProgramMenu();
 
-            timer1 = new src.TimerControl(1, this, settings);
+            timer1 = new src.TimerControl(1, this);
             timer1.ThresholdReached += Timer1_ThresholdReached;
 
-            timer2 = new src.TimerControl(2, this, settings);
+            timer2 = new src.TimerControl(2, this);
             timer2.ThresholdReached += Timer2_ThresholdReached;
 
-            timer3 = new src.TimerControl(3, this, settings);
+            timer3 = new src.TimerControl(3, this);
             timer3.ThresholdReached += Timer3_ThresholdReached;
+
+            /* Aesthetics Bug "Fix": Without the below label text updates, the
+             * "Label" part gets cut off upon the program loading...
+             * This occured after changing some of the label properties; I changed
+             * the properties so when a user updates the labels text, the new text
+             * stays centered.
+             */
+            t1_label.Text = "Timer 1 Label";
+            t2_label.Text = "Timer 2 Label";
+            t3_label.Text = "Timer 3 Label";
 
         }
 
@@ -95,6 +106,11 @@ namespace ThreePartTimer
             tick_timer.Interval = 1000;
             tick_timer.Elapsed += Tick_timer_Elapsed;
             tick_timer.Start();
+
+            settings.UpdateTimerSettings();
+            timer1.Reset();
+            timer2.Reset();
+            timer3.Reset();
         }
 
         private void Tick_timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -111,6 +127,7 @@ namespace ThreePartTimer
             {
                 timer3.Update();
             }
+            return;
         }
 
         private void CreateProgramMenu()
@@ -123,7 +140,7 @@ namespace ThreePartTimer
             this.Menu = m;
         }
 
-        public void UpdateDynamLabelt1(string text)
+        public void t1UpdateDynamLabel(string text)
         {
             if (this.InvokeRequired)
             {
@@ -134,7 +151,7 @@ namespace ThreePartTimer
             }
         }
 
-        public void UpdateDynamLabelt2(string text)
+        public void t2UpdateDynamLabel(string text)
         {
             if (this.InvokeRequired)
             {
@@ -145,7 +162,7 @@ namespace ThreePartTimer
                 dynam_t2_label.Text = text;
             }
         }
-        public void UpdateDynamLabelt3(string text)
+        public void t3UpdateDynamLabel(string text)
         {
             if (this.InvokeRequired)
             {
@@ -157,7 +174,7 @@ namespace ThreePartTimer
             }
         }
 
-        public void UpdateLabelt1(string text)
+        public void t1UpdateLabel(string text)
         {
             if (this.InvokeRequired)
             {
@@ -169,7 +186,7 @@ namespace ThreePartTimer
             }
         }
 
-        public void UpdateLabelt2(string text)
+        public void t2UpdateLabel(string text)
         {
             if (this.InvokeRequired)
             {
@@ -180,7 +197,7 @@ namespace ThreePartTimer
                 t2_label.Text = text;
             }
         }
-        public void UpdateLabelt3(string text)
+        public void t3UpdateLabel(string text)
         {
             if (this.InvokeRequired)
             {
@@ -189,6 +206,41 @@ namespace ThreePartTimer
             else
             {
                 t3_label.Text = text;
+            }
+        }
+
+        public void t1UpdateTime(int mins, int secs)
+        {
+            timer1.init_min = mins;
+            timer1.init_sec = secs;
+        }
+
+        public void t2UpdateTime(int mins, int secs)
+        {
+            timer2.init_min = mins;
+            timer2.init_sec = secs;
+        }
+
+        public void t3UpdateTime(int mins, int secs)
+        {
+            timer3.init_min = mins;
+            timer3.init_sec = secs;
+        }
+
+        public bool GetTimerStatus(int timer)
+        {
+            switch(timer)
+            {
+                case 0:
+                    return false;
+                case 1:
+                    return timer1.enabled;
+                case 2:
+                    return timer2.enabled;
+                case 3:
+                    return timer3.enabled;
+                default:
+                    return false;
             }
         }
 
@@ -275,5 +327,21 @@ namespace ThreePartTimer
             timer3.Reset();
             t3_startstop_btn.Text = "Start";
         }
+        public void TimerReset(int timer)
+        {
+            switch (timer)
+            {
+                case 1:
+                    timer1.Reset();
+                    break;
+                case 2:
+                    timer2.Reset();
+                    break;
+                case 3:
+                    timer3.Reset();
+                    break;
+            }
+        }
+
     }
 }
